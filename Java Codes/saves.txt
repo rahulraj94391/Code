@@ -1,0 +1,229 @@
+public static String removeX(String str, char c) {
+    // remove char 'x' from the given string
+    if (str.length() == 0) return "";
+    char cc = str.charAt(0);
+    String ros = str.substring(1);
+    String myAns = removeX(ros, c);
+    if (cc != c) return (cc + myAns);
+    else return myAns;
+}
+
+public static ArrayList<String> getBoardPath(int curr, int end) {
+    if (curr == end) {
+        ArrayList<String> base = new ArrayList<>();
+        base.add("");
+        return base;
+    }
+
+    if (curr > end) {
+        ArrayList<String> base = new ArrayList<>();
+        return base;
+    }
+
+    ArrayList<String> mr = new ArrayList<>();
+
+    for (int dice = 1; dice <= 6; dice++) { // start "dice = 1" always, because if we write "dice = 0", then in next step, it will give call to getBoardPath(current {which is 0} + dice {which is also 0} , end {10}). therfore 0+0 will again give call to "0", but we wanted to call for "1". this will produce error.
+        ArrayList<String> rr = getBoardPath(curr + dice, end);
+
+        for (int i = 0; i < rr.size(); i++) {
+            mr.add(dice + rr.get(i));
+        }
+    }
+    return mr;
+}
+
+public static ArrayList<String> getPermutations(String str) {
+    /* to print the permutation of a string */
+    if (str.length() == 0) {
+        ArrayList<String> base = new ArrayList<>(); 
+        base.add("");
+        return base;
+    }
+    char ch = str.charAt(0);
+    String ros = str.substring(1);
+    ArrayList<String> rr = getPermutations(ros);
+    ArrayList<String> mr = new ArrayList<>();
+    for (String rrs : rr) {
+        for (int i = 0; i <= rrs.length(); i++) {
+            String val = rrs.substring(0, i) + ch + rrs.substring(i);
+            mr.add(val);
+        }
+    }
+    return mr;
+}
+
+public static String PairStar(String str){
+    /*
+    Given a string S, compute recursively a new string where identical chars that are adjacent in the original string are separated from each other by a "*".
+    */
+    if(str.length() == 1) 
+        return str;
+    char cc = str.charAt(0);
+    String ros = str.substring(1);
+    String myAns = PairStar(ros);
+    if(cc == myAns.charAt(0))
+        return cc + "*" + myAns;
+    else return cc + myAns;
+}
+
+public static boolean isSorted(int[] arr, int si) {
+    // to check if a given array is sorted (recursion)
+    if (si == arr.length - 1)
+        return true;
+    if (arr[si] > arr[si + 1])
+        return false;
+    else
+        return isSorted(arr, si + 1);
+}
+
+public static int SOD(int n, int sum) {
+    // sum of digits of a number
+    if (n == 0)
+        return sum;
+    return SOD(n / 10, sum + n % 10);
+}
+
+public static void rotate(int[] arr, int k) {
+    // to rotate array right 'k' place
+    int size = arr.length;
+    int[] temp = new int[size];
+    for (int i = 0; i < size; i++)
+        temp[(i + k) % size] = arr[i];
+    for (int i = 0; i < size; i++)
+        arr[i] = temp[i];
+}
+
+public static boolean check(int[] arr) {
+    int count = 0;
+    for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < arr[i + 1])
+            continue;
+        else {
+            count++;
+            continue;
+        }
+
+    }
+    if (arr[arr.length - 1] > arr[0])
+        return false;
+    else
+        return (count >= 1) ? true : false;
+}
+
+public static double GS(double k){
+    // to calculate geometric sum >>> 1 + 1/2 + 1/4 + 1/8 + ... + 1/(2^k)
+    if (k==0)
+        return 1;
+    return GS(k-1) + 1/Math.pow(2, k);
+}
+
+public static boolean PD(String str, int si) {
+    if (str.length() / 2 == si)
+        return true;
+    if (str.charAt(si) == str.charAt(str.length() - 1 - si))
+        return PD(str, si + 1);
+    else
+        return false;
+}
+
+public static void print(Node<Integer> head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static Node<Integer> takeInput() {
+        Node<Integer> head = null, tail = null;
+        Scanner s = new Scanner(System.in);
+        int data = s.nextInt();
+        while (data != -1) {
+            Node<Integer> newNode = new Node<>(data);
+            if (head == null) {
+                head = tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+            data = s.nextInt();
+        }
+        s.close();
+        return head;
+    }
+
+    public static void insert(Node<Integer> head, int data, int pos) {
+        Node<Integer> newNode = new Node<Integer>(data);
+        Node<Integer> temp = head;
+        int i = 0;
+        while (i < pos - 1) {
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    public static void print(Node<Integer> head) {
+        // to print the LL<Integer>
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static Node<Integer> takeInput() {
+        // Take input until user enters -1.
+        Node<Integer> head = null, tail = null;
+        Scanner s = new Scanner(System.in);
+        int data = s.nextInt();
+        while (data != -1) {
+            Node<Integer> newNode = new Node<>(data);
+            if (head == null) {
+                head = tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+            data = s.nextInt();
+        }
+        s.close();
+        return head;
+    }
+
+    public static Node<Integer> insert(Node<Integer> head, int data, int pos) {
+        // insert new node in specific position
+        Node<Integer> newNode = new Node<Integer>(data);
+        if(pos == 0){
+            newNode.next = head;
+            head = newNode;
+            return head;
+        }
+        Node<Integer> temp = head;
+        int i = 0;
+        while (i < pos - 1) {
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+        return head;
+    }
+
+    public static Node<Integer> delete(Node<Integer> head, int pos) {
+        // delete element at a specific position
+        Node<Integer> temp = head;
+        if(pos == 0){
+            head = head.next;
+            return head;
+        }
+
+        int i = 0;
+        while (i++ < pos - 1){
+            temp = temp.next;
+            i++;
+        }
+        temp.next = temp.next.next;
+        return head;
+    }
