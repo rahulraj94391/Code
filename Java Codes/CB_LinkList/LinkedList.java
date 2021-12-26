@@ -11,19 +11,23 @@ public class LinkedList {
         Node next;
     }
 
+
+    public static final int val = 0;
+
     
     // {about head, tail, size} -
     // head/ tail/ size is the property of "LinkedList" class, so we kept it private. No other class other than "LinkedList" class should have the permission to access it and change it's value.
     private Node head;
     private Node tail;
     private int size;
+    
 
 
     // {about display() method} - this method will print the data in the nodes
     public void display() {
         Node temp = this.head; // this.head refers to the class data member.
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.print(temp.data + " ");
             temp = temp.next;
         }
     }
@@ -288,4 +292,33 @@ public class LinkedList {
 
         return slow.data;
     }
+
+    public Node mergeTwoLists(Node l1, Node l2) {
+        Node main_head = new Node();
+        Node temp = main_head;
+        while(l1 != null && l2 != null){
+            if(l1.data > l2.data){
+                temp.next = l2;
+                l2 = l2.next;
+            }
+            else if(l1.data <= l2.data){
+                temp.next = l1;
+                l1 = l1.next;
+            }
+            temp = temp.next;
+        }
+        
+        if(l1 != null){
+            temp.next = l1;
+        }
+        if(l2 != null){
+            temp.next = l2;
+        }
+        
+        return main_head.next;
+    }
+
+    
+
 }
+

@@ -1,18 +1,30 @@
 package CB_LinkList;
+
 import java.util.*;
 
 public class LLUse {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        LinkedList list = new LinkedList();
-        list.addFirst(10);
-        list.addFirst(40);
-        list.addFirst(50);
-        list.display();
-        System.out.println();
-        list.addAt(sc.nextInt(), sc.nextInt());
-        System.out.println();
-        list.display();
-        
+        LinkedList list1 = new LinkedList();
+        list1.addLast(1);
+        list1.addLast(2);
+        list1.addLast(4);
+        LinkedList list2 = new LinkedList();
+        list2.addLast(1);
+        list2.addLast(3);
+        list2.addLast(4);
+        // list1.display();
+        // System.out.println();
+        // list2.display();
+        System.out.println("head 1 " + list1);
+        System.out.println("head 2 " + list2);
+
+        LinkedList head = mergeTwoLists(list1, list2);
     }
+
+    
+
+    
 }
+
+
