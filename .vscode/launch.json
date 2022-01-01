@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Bike1",
+            "request": "launch",
+            "mainClass": "Bike1",
+            "projectName": "Code_72d74406"
+        },
+        {
+            "type": "java",
             "name": "Launch LLUse",
             "request": "launch",
             "mainClass": "CB_LinkList.LLUse",

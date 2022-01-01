@@ -79,32 +79,4 @@ public class LL_use {
         
     }
 
-    public int getDecimalValue(ListNode head) {
-        String s = ""; // make a blank string
-        ListNode temp = head;
-        while (temp != null) {
-            s = s + temp.val; // append value of nodes to empty string
-
-            // increment temp
-            temp = temp.next;
-        }
-        System.out.println(s);
-        return getDecimal(Integer.valueOf(s));
-    }
-
-    private static int getDecimal(int binary) {
-        int decimal = 0;
-        int n = 0;
-        while (true) {
-            if (binary == 0) {
-                break;
-            } else {
-                int temp = binary % 10;
-                decimal += temp * Math.pow(2, n);
-                binary = binary / 10;
-                n++;
-            }
-        }
-        return decimal;
-    }
 }

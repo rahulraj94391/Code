@@ -1,7 +1,5 @@
 package LinkList;
 
-import org.w3c.dom.NodeList;
-
 // public class Pair<V,T> {
 //     private V first;
 //     private T second;

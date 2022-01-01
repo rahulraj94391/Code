@@ -316,9 +316,6 @@ public class LinkedList {
         }
         
         return main_head.next;
-    }
-
-    
-
+    }    
 }
 

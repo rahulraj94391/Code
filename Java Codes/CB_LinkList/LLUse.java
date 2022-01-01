@@ -1,6 +1,5 @@
 package CB_LinkList;
 
-import java.util.*;
 
 public class LLUse {
     public static void main(String[] args) throws Exception {
@@ -22,7 +21,7 @@ public class LLUse {
         StringBuilder sb = new StringBuilder();
         sb.append("a");
         System.out.println(sb);
-        sb.toString()
+        sb.toString();
         
     }
 
