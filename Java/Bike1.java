@@ -6,20 +6,21 @@ class Bike1 {
         arrlst.add("Biscuit");
         arrlst.add("Snack");
         arrlst.add("Fruit");
-
-        // 1.
-        for(String st: arrlst){
-            System.out.println(st);
-        }
-
-        // 2.
+        
+        print(arrlst);
         arrlst.add("Milk");
-        for(String st: arrlst){
-            System.out.println(st);
-        }
+        print(arrlst);
 
-        // 3.
         System.out.println(arrlst.size());
 
     }
+
+    static void print(ArrayList<String> l){
+        int i = 1;
+        for (String st : l) {
+            System.out.println(i++ + " " + st);
+        }
+    }    
 }
+
+
