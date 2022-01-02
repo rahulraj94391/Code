@@ -5,6 +5,5 @@ class Test2 {
         HashMap<String, String> att = new HashMap<>();
         Set<String> hs = new HashSet<>();
 
-
     }
 }

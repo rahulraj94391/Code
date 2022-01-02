@@ -6,7 +6,7 @@ class Bike1 {
         arrlst.add("Biscuit");
         arrlst.add("Snack");
         arrlst.add("Fruit");
-        
+
         print(arrlst);
         arrlst.add("Milk");
         print(arrlst);
@@ -15,12 +15,10 @@ class Bike1 {
 
     }
 
-    static void print(ArrayList<String> l){
+    static void print(ArrayList<String> l) {
         int i = 1;
         for (String st : l) {
             System.out.println(i++ + " " + st);
         }
-    }    
+    }
 }
-
-
