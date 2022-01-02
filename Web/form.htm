@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<script>
+    function validateform() {
+        var name = document.myform.name.value;
+        var password = document.myform.password.value;
+
+        if (name == null || name == "") {
+            alert("Name can't be blank");
+            return false;
+        } else if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return false;
+        }
+    }  
+</script>
+
+<body>
+    <center>
+        <h2>Registeration Form</h2>
+        <form action="D:\Code\Web\form.htm" name="myform" method="post" onsubmit="return validateform()">
+            <table>
+                <!-- name -->
+                <tr>
+                    <td>Name</td>
+                    <td> <input type="text" name="name"> </td>
+                </tr>
+
+                <tr>
+                    <td>Password</td>
+                    <td> <input type="password" name="password"> </td>
+                </tr>
+
+
+                <!-- father name -->
+                <tr>
+                    <td>Father Name</td>
+                    <td> <input type="text"> </td>
+                </tr>
+
+
+                <!-- mother name -->
+                <tr>
+                    <td>Mother Name</td>
+                    <td> <input type="text"> </td>
+                </tr>
+
+
+                <!-- gender -->
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="gender"> Male
+                        <input type="radio" name="gender"> Female
+                    </td>
+                </tr>
+
+
+                <!-- Email -->
+                <tr>
+                    <td>Email</td>
+                    <td> <input type="text"> </td>
+                </tr>
+
+
+                <!-- Mobile number -->
+                <tr>
+                    <td>Mobile No.</td>
+                    <td><Select>
+                            <option value=""></option>
+                            <option value="">+91</option>
+                            <option value="">+92</option>
+                        </Select>
+                        <input type="text">
+                    </td>
+                </tr>
+            </table>
+
+
+            <!-- submit button -->
+            <input type="submit" value="Submit">
+        </form>
+
+    </center>
+</body>
+
+</html>
