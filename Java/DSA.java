@@ -1,25 +1,37 @@
-public class DSA {
-    public static void main(String[] args) {
-        // System.out.println(isPowerOfThree(1));
-        int i = 3;
-        int e = 6;
-        int x = 7;
-        String s = "";
-        if ((i + e) >= (i + x)) {
-            i++;
-            s = "gg";
-            e--;
-        } else if ((i + e + x) >= 15) {
-            x++;
-            s = "wp";
-        }
-        System.out.println(x + s);
-    }
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        LinkedList<Integer> ll = new LinkedList<Integer>();
+        int carry = 0;
+        int sum = 0;
+        int total = 0;
 
-    public static boolean isPowerOfThree(int n) {
-        for (int x = 0; x < 20; x++)
-            if (Math.pow(3, x) == n)
-                return true;
-        return false;
+        while (l1 != null || l2 != null) {
+            if (l1 == null) {
+                sum = l2.val;
+                l2 = l2.next;
+            } else if (l2 == null) {
+                sum = l1.val;
+                l1 = l1.next;
+            } else {
+                sum = l1.val + l2.val;
+                l1 = l1.next;
+                l2 = l2.next;
+            }
+
+            total = sum + carry;
+            ll.add(total % 10);
+            carry = total / 10;
+
+        }
     }
 }
