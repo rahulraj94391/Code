@@ -11,9 +11,6 @@ public class LinkedList {
         Node next;
     }
 
-
-    public static final int val = 0;
-
     
     // {about head, tail, size} -
     // head/ tail/ size is the property of "LinkedList" class, so we kept it private. No other class other than "LinkedList" class should have the permission to access it and change it's value.

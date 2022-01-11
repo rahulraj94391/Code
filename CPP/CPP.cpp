@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 using namespace std;
 
 int main()
@@ -7,6 +8,7 @@ int main()
     cout << "Enter the Number to check Prime: ";
     cin >> n;
     m = n / 2;
+    m = INT_MAX;
     for (i = 2; i <= m; i++)
     {
         if (n % i == 0)
@@ -18,5 +20,7 @@ int main()
     }
     if (flag == 0)
         cout << "Number is Prime." << endl;
+
+    cin >> n;
     return 0;
 }
